@@ -9,15 +9,15 @@ tags: [Cloud, GCP, Hosting, Bucket, Load balancer, Domain]
 - First of all, I have to activate the Google Storage service on my Google Cloud project
 ## Create a new bucket
 Now, I went to the Cloud storage and click on create a new bucket.
-- I assign a unique name for the bucket, it doesn't matter the name I assign to the bucket since with a DNS record I'll redirect it to a more friendlier path.
-  ![[Pasted image 20231022032937.png]]
-- For the location where our data will be saved, I'll select only regional and the region closest to me.
-  ![[Pasted image 20231022033001.png]]
-- For the bucket class I'll select Starndard because as the bucket will function as a host, the information will be constantly accesed and the standar class is the best for data that would be accessed regularly.
-  ![[Pasted image 20231022033025.png]]
-- For the control access, we only will uncheck the prevent public access option, since users will need to access to the bucket 
-  ![[Pasted image 20231022033118.png]]
-- Finally, I'll click on the create button, to create the bucket.
+- I assign a unique name for the bucket, it doesn't matter the name I assign to the bucket since with a DNS record I'll redirect it to a more friendlier path.  
+  ![Creating a bucket](/assets/Hosted-a-website/1.png)
+- For the location where our data will be saved, I'll select only regional and the region closest to me.  
+  ![Bucket region](/assets/Hosted-a-website/2.png)
+- For the bucket class I'll select Starndard because as the bucket will function as a host, the information will be constantly accesed and the standar class is the best for data that would be accessed regularly.  
+  ![Creating a bucket](/assets/Hosted-a-website/3.png)
+- For the control access, we only will uncheck the prevent public access option, since users will need to access to the bucket.   
+  ![Creating a bucket](/assets/Hosted-a-website/4.png)
+- Finally, I'll click on the create button, to create the bucket.  
 
 ## Upload files
 Now, I have downloaded a website template to perform this test and will upload to the bucket, this can be done using the GUI or using the gsutil command.
@@ -27,11 +27,11 @@ gsutil cp my-file-or-folder gs//bucket-name
 ```
 ## Configuring Permission
 We will need to ensure the security of the files, so next steps are:
-- Go to the bucket and select permission, then click on Grant access and assign the role viewer to allusers.
-  ![[Pasted image 20231022041509.png]]
+- Go to the bucket and select permission, then click on Grant access and assign the role viewer to allusers.  
+  ![Creating a bucket](/assets/Hosted-a-website/5.png)
 ## Configure static host
-Next, configure the static web index file by selecting the three-dot icon on the bucket and then click on edit website configuration.
-![[Pasted image 20231022042045.png]]
+Next, configure the static web index file by selecting the three-dot icon on the bucket and then click on edit website configuration.  
+![Creating a bucket](/assets/Hosted-a-website/7.png)
 
 Now, copy the URL and paste it in a new tab, we will be able to see the website.
 
@@ -46,21 +46,21 @@ Now, copy the URL and paste it in a new tab, we will be able to see the website.
 	- For the IP version, we will select IPV4 and for IP Direction we will reserve a new static IP, then click on **Reserve**.
 	- For port configuration we will select **433**.
 	- In the **Certificate** dropdown menu, we will click on it and select create a new certificate managed by Google.
-	- For the domain configuration, we put the address that we want to use with our domain.
-	  ![[Pasted image 20231022220003.png]]
-	- Then, we create our frontend configuration.
-	  ![[Pasted image 20231022205751.png]]
+	- For the domain configuration, we put the address that we want to use with our domain.  
+	  ![Creating a bucket](/assets/Hosted-a-website/14.png)
+	- Then, we create our frontend configuration.  
+	  ![Creating a bucket](/assets/Hosted-a-website/12.png)
 ### Backend configuration
 - In the Backend configuration we will click on the Backend services & backend buckets dropdown menu and select **Create a backend bucket**
 - We will assign a name for the backend bucket.
-- And now click on the browse option and will select our bucket that works as the host.
-  ![[Pasted image 20231022191948.png]]
-- Then, click on **Create**
-  ![[Pasted image 20231022192121.png]]
+- And now click on the browse option and will select our bucket that works as the host.  
+  ![Creating a bucket](/assets/Hosted-a-website/8.png)
+- Then, click on **Create**.  
+  ![Creating a bucket](/assets/Hosted-a-website/10.png)
 ### Routing tables
 
-Here there is not much to do, the configuration was configured automatically, so we just need to double check the frontend and backend configuration.
-![[Pasted image 20231022193115.png]]
+Here there is not much to do, the configuration was configured automatically, so we just need to double check the frontend and backend configuration.  
+![Creating a bucket](/assets/Hosted-a-website/11.png)
 ## Connecting our domain to the load balancer
 Now in our domain provider page, we will add a DNS record.
 A record A with the load balancer IP as a value, for example:
@@ -70,7 +70,6 @@ www                   A        30.90.80.100
 @                     A        30.90.80.100
 ```
 
-Now we just have to wait the replication.
-![[Pasted image 20231022210148.png]]
-
+Now we just have to wait the replication.  
+![Creating a bucket](/assets/Hosted-a-website/13.png)
 And all works as expected!!!!
