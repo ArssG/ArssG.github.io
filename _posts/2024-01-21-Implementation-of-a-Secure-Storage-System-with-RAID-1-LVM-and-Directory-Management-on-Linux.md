@@ -5,17 +5,6 @@ categories: [Linux]
 tags: [RAID1, LVM, "Virtual machine", Virtualization]
 ---
 
-- [Objective](#Objective)
-	- [Prerequisite](#Prerequisite)
-	- [1. Disk configuration](#1.%20Disk%20configuration)
-	- [2. RAID 1 Configuration](#2.%20RAID%201%20Configuration)
-	- [3. Creation of Physical Volume and Logical Group](#3.%20Creation%20of%20Physical%20Volume%20and%20Logical%20Group)
-	- [4. Creation of Logical Volumes](#4.%20Creation%20of%20Logical%20Volumes)
-	- [5. File System and Mounting](#5.%20File%20System%20and%20Mounting)
-	- [6. Directory Configuration](#6.%20Directory%20Configuration)
-	- [7. Security and Permissions](#7.%20Security%20and%20Permissions)
-	- [8. Testing](#8.%20Testing)
-	- [9. Automation](#9.%20Automation)
 
 ## Objective 
 Develop a robust and secure storage system using RAID 1, Logical Volume Management (LVM), and establish a directory structure for public and private files in a Linux environment.  
